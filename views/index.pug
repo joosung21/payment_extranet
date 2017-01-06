@@ -83,13 +83,13 @@ html(lang="en")
               //-- PAGE TITLE
               h1.page-title
                 | 판매내역
-                small ZARI GDS를 통해 판매된 주문 내역입니다.
+                small ZARI GDS를 통해 판매된 예약 내역입니다.
               .col-md-6
                 .alert.alert-warning.alert-dismissable
                   button.close(type='button', data-dismiss='alert', aria-hidden='true')
-                  strong DEMO 설정
+                  strong DEV MEMO:
                   br
-                  |  오늘은 12/27(화). 체크인날짜 18(일)까지는 모두 23(금)에 정산완료. 19(월)~25은(일)은 30(금)정산예정, 그 이후는 대기중.
+                  |  오늘을 12/27(화)로 가장하고, 체크인날짜 18(일)까지는 모두 23(금)에 정산완료. 19(월)~25은(일)은 30(금)정산예정, 그 이후는 대기중.
               .row
                 .col-md-12
 
@@ -97,8 +97,8 @@ html(lang="en")
                   .portlet.light.bordered
                     .portlet-title
                       .caption.font-dark
-                        i.icon-settings.font-dark
-                        span.caption-subject.bold.uppercase Buttons
+                        i.icon-cup.font-dark
+                        span.caption-subject.bold.uppercase 예약내역
                       .tools
                     .portlet-body
                       table#gds_table1.table.table-striped.table-bordered.table-hover
@@ -142,12 +142,13 @@ html(lang="en")
                               td
                                 case val.status
                                   when '정산완료'
-                                    span.label.label-sm.label-default #{val.status}
+                                    span.label.label-sm.label-primary #{val.status}
                                   when '정산예정'
                                     span.label.label-sm.label-success #{val.status}
                                   when '대기중'
                                     span.label.label-sm.label-warning #{val.status}
-
+                                  when '취소됨'
+                                    span.label.label-sm.label-default #{val.status}
     //- FOOTER
     .page-footer
       .page-footer-inner

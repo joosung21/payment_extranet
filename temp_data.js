@@ -39,7 +39,7 @@ var list = [
     name: 'Lorena Aleman',
     checkin: new Date('2016-12-27'),
     gross_price: 145000,
-    status: '대기중'
+    status: '취소됨'
   },
   {
     id: '660223',
