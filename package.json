@@ -1,0 +1,36 @@
+{
+  "name": "todolist",
+  "version": "1.0.0",
+  "description": "my first project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joosung21/todolist.git"
+  },
+  "author": "Jay Ahn",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/joosung21/todolist/issues"
+  },
+  "homepage": "https://github.com/joosung21/todolist#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "mysql": "^2.12.0",
+    "pug": "^2.0.0-beta6"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-connect": "^5.0.0",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-prettify": "^0.5.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-rtlcss": "^1.0.0",
+    "gulp-sass": "^3.0.0",
+    "gulp-sourcemaps": "^1.9.1",
+    "gulp-uglify": "^2.0.0"
+  }
+}
