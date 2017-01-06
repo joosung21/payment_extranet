@@ -5,14 +5,23 @@ var bodyParser = require('body-parser')              // Module for Passsing POST
 app.set('views', './views')                         // Init Pug path
 app.set('view engine', 'pug')                       // Init framework
 app.locals.pretty = true                            // Setting Pug comverting to pretty html
+app.locals.moment = require('moment')               // Module for control time format
 app.use('/assets', express.static('assets'))        // Init asset path
+app.use('/lang', express.static('lang'))        // Init language path
 app.use('/', express.static('public'))              // Init static file path
 app.use(bodyParser.urlencoded({ extended: false })) // Set bodyParser
 app.use(bodyParser.json())                          // Set bodyParser json
 
+// 임시 판매데이타 불러오기
+var list = require( "./temp_data.js")
+var list = list.getlist()
+
 // ENTRY OF Index
 app.get('/', function (req, res) {
-  res.render('index');
+  console.log(list)
+  res.render('index', {
+    list: list
+  })
 })
 
 // SERVER LISTNER
