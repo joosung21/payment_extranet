@@ -1,24 +1,23 @@
 var TableDatatablesButtons = function () {
 
     var initTable1 = function () {
-        var table = $('#gds_table1');
+        var table = $('#sample_1');
 
         var oTable = table.dataTable({
 
             // Internationalisation. For more info refer to http://datatables.net/manual/i18n
             "language": {
-                // "aria": {
-                //     "sortAscending": ": activate to sort column ascending",
-                //     "sortDescending": ": activate to sort column descending"
-                // },
-                // "emptyTable": "No data available in table",
-                // "info": "Showing _START_ to _END_ of _TOTAL_ entries",
-                // "infoEmpty": "No entries found",
-                // "infoFiltered": "(filtered1 from _MAX_ total entries)",
-                // "lengthMenu": "_MENU_ entries",
-                // "search": "Search:",
-                // "zeroRecords": "No matching records found"
-                url: '/lang/dataTables.korean.lang.json'
+                "aria": {
+                    "sortAscending": ": activate to sort column ascending",
+                    "sortDescending": ": activate to sort column descending"
+                },
+                "emptyTable": "No data available in table",
+                "info": "Showing _START_ to _END_ of _TOTAL_ entries",
+                "infoEmpty": "No entries found",
+                "infoFiltered": "(filtered1 from _MAX_ total entries)",
+                "lengthMenu": "_MENU_ entries",
+                "search": "Search:",
+                "zeroRecords": "No matching records found"                
             },
 
             // Or you can use remote translation file
