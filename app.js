@@ -13,8 +13,12 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
 // Temporary DATA
-var list = require( "./temp_data.js")
+var list = require( "./temp_reservation_data.js")
+var list2 = require( "./temp_reservation_data2.js")
+var property = require( "./temp_property_data.js")
 var list = list.getlist()
+var list2 = list2.getlist()
+var property = property.getlist()
 
 app.get(['/', '/:id'], function (req, res) {
   if (!req.params.id) {
@@ -22,6 +26,8 @@ app.get(['/', '/:id'], function (req, res) {
   } else {
     res.render( req.params.id , {
       list: list,
+      list2: list2,
+      property: property,
       pageId: req.params.id
     })
   }

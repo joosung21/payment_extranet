@@ -25,9 +25,9 @@ var TableDatatables = function () {
     // Intit Datatable: po_list
     var initTable1 = function () {
         var table = $('#table_po_list');
-        // var data = table.buttons.exportData( {
-        //     columns: ':visible'
-        // } );
+
+        var currencyColumns = [5,6,7]; // money formatting columns
+
         var oTable = table.dataTable({
 
             // Internationalisation. For more info refer to http://datatables.net/manual/i18n
@@ -87,10 +87,10 @@ var TableDatatables = function () {
                 reorderCallback: function () {
                     // console.log( 'callback' );
                 }
-            },
+            },           
 
             "order": [
-                [0, 'desc']
+                [2, 'desc']
             ],
 
             "lengthMenu": [
@@ -105,13 +105,13 @@ var TableDatatables = function () {
                 //     'orderable': false,
                 //     'targets': [0]
                 // },
-                {
-                    "searchable": false,
-                    "targets": [0]
-                },
+                // {
+                //     "searchable": false,
+                //     "targets": [0]
+                // },
                 {
                     "className": "dt-right",
-                    "targets": [5,6,7]
+                    "targets": currencyColumns
                 }
             ],
 
@@ -158,7 +158,6 @@ var TableDatatables = function () {
                 //     }, 0 );
 
                 // Total over this page
-                var currencyColumns = [5,6,7];
                 currencyColumns.forEach(function(column) {
                   pageTotal = api
                       .column( column, { page: 'current'} )
@@ -182,6 +181,8 @@ var TableDatatables = function () {
     // Intit Datatable: ps_list
     var initTable2 = function () {
         var table = $('#table_ps_list');
+
+        var currencyColumns = [6,7,8]; // money formatting columns
 
         var oTable = table.dataTable({
 
@@ -243,24 +244,20 @@ var TableDatatables = function () {
             },
 
             "order": [
-                [0, 'desc']
+                [2, 'desc']
             ],
 
             "lengthMenu": [
-                [5, 10, 15, 20, -1],
-                [5, 10, 15, 20, "All"] // change per page values here
+                [10, 20, 30, 50, -1],
+                [10, 20, 30, 50, "All"] // change per page values here
             ],
             // set the initial value
-            "pageLength": 10,
+            "pageLength": 20,
 
             "columnDefs": [
                 {
-                    "searchable": false,
-                    "targets": [0]
-                },
-                {
                     "className": "dt-right",
-                    "targets": [5,6,7]
+                    "targets": currencyColumns
                 }
             ],
 
@@ -276,7 +273,6 @@ var TableDatatables = function () {
                 };
 
                 // Total over this page
-                var currencyColumns = [5,6,7];
                 currencyColumns.forEach(function(column) {
                   pageTotal = api
                       .column( column, { page: 'current'} )

@@ -30,7 +30,7 @@ include includes/left_sidebar.pug
           .portlet-title
             .caption.font-dark
               i.icon-layers.font-dark
-              span.caption-subject.bold.uppercase #{list.length}건의 판매내역을 불러왔습니다
+              span.caption-subject.bold.uppercase #{list2.length}건의 판매내역을 불러왔습니다
             .tools
           .portlet-body
             table#table_ps_list.table.table-striped.table-bordered.table-hover
@@ -39,6 +39,7 @@ include includes/left_sidebar.pug
                   th ID
                   th 판매채널
                   th 예약발생일
+                  th 숙소
                   th 고객이름
                   th 체크인
                   th 판매금액
@@ -56,29 +57,18 @@ include includes/left_sidebar.pug
                   th
                   th
                   th
+                  th
               tbody
-                each val in list
+                each val in list2
                   tr.odd.gradeX
                     td #{val.id}
                     td #{val.channel}
                     td #{moment(val.sold_date).format('YYYY/MM/DD')}
+                    each key in property
+                      if key.id === val.property_id
+                        td #{key.name}
                     td #{val.name}
                     td #{moment(val.checkin).format('YYYY/MM/DD')}
-                    // -
-                    //   Number.prototype.formatMoney = function(c, d, t){
-                    //   var n = this,
-                    //     c = isNaN(c = Math.abs(c)) ? 2 : c,
-                    //     d = d == undefined ? "." : d,
-                    //     t = t == undefined ? "," : t,
-                    //     s = n < 0 ? "-" : "",
-                    //     i = String(parseInt(n = Math.abs(Number(n) || 0).toFixed(c))),
-                    //     j = (j = i.length) > 3 ? j % 3 : 0;
-                    //    return s + (j ? i.substr(0, j) + t : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + t) + (c ? d + Math.abs(n - i).toFixed(c).slice(2) : "");
-                    //   };
-                    //   function currency(money){
-                    //     return Math.round(money).formatMoney(0, '.', ',');
-                    //   }
-
                     - var commition = val.gross_price * 0.15
                     td.currency #{val.gross_price}
                     td.currency #{commition}
