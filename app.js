@@ -16,11 +16,15 @@ app.use(bodyParser.json())
 var list = require( "./temp_data.js")
 var list = list.getlist()
 
-// ENTRY OF Index
-app.get('/', function (req, res) {
-  res.render('index', {
-    list: list
-  })
+app.get(['/', '/:id'], function (req, res) {
+  if (!req.params.id) {
+    res.redirect('/po_list')
+  } else {
+    res.render( req.params.id , {
+      list: list,
+      pageId: req.params.id
+    })
+  }
 })
 
 // SERVER LISTNER

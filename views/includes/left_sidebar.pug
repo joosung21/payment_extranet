@@ -1,0 +1,29 @@
+.page-sidebar-wrapper
+  .page-sidebar.navbar-collapse.collapse
+    //- SIDEBAR MENU
+    ul.page-sidebar-menu.page-header-fixed(data-keep-expanded='false', data-auto-scroll='true', data-slide-speed='200', style='padding-top: 20px')
+      //- SIDEBAR TOGGLER BUTTON
+      li.sidebar-toggler-wrapper.hide
+        .sidebar-toggler
+          span
+      li.heading
+        h3.uppercase PROPERTY OWNERS
+      li.nav-item(class= pageId == "po_list" ? "active" : "")
+        a.nav-link.nav-toggle(href='/po_list')
+          i.icon-layers
+          span.title 판매내역
+          span.selected
+          //- span.arrow
+        //- ul.sub-menu
+          li.nav-item.active
+            a.nav-link(href='app_todo')
+              i.icon-check
+              span.title ToDo
+              span.selected
+      li.heading
+        h3.uppercase T PORT - PS
+      li.nav-item(class= pageId == "ps_list" ? "active" : "")
+        a.nav-link.nav-toggle(href='ps_list')
+          i.icon-layers
+          span.title 판매내역
+          span.selected

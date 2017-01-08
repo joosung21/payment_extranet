@@ -19,5 +19,12 @@
    "oAria": {
        "sSortAscending":  ": 오름차순 정렬",
        "sSortDescending": ": 내림차순 정렬"
+   },
+   "buttons": {
+     "copyTitle": "클립보드에 복사",
+     "copySuccess": {
+           "_": "%d 개의 열이 복사되었습니다",
+           "1": "한 개의 열이 복사되었습니다"
+       }
    }
 }
