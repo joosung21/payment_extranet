@@ -22,7 +22,7 @@ include includes/left_sidebar.pug
   .page-content
     //-- PAGE TITLE
     h1.page-title
-      | 판매내역 - PS AGENT
+      | 파트너정산 - ACCOUNTANT
       //- small ZARI GDS를 통해 판매된 예약 내역입니다
     .row
       .col-md-12
@@ -31,12 +31,11 @@ include includes/left_sidebar.pug
         .portlet.light.bordered
           .portlet-body
             select.form-control.input-small.input-inline
-              option 예약발생일
               option 체크인
             .input-group.input-large.date-picker.input-daterange(data-date='12/01/2016', data-date-format='mm/dd/yyyy')
-              input.form-control(type='text', name='from', value='12/01/2016')
+              input.form-control(type='text', name='from', value='12/11/2016')
               span.input-group-addon  부터
-              input.form-control(type='text', name='to', value='12/31/2016')
+              input.form-control(type='text', name='to', value='12/18/2016')
             style(type="text/css").
               .input-group {
                 display: inline-table;
@@ -48,24 +47,24 @@ include includes/left_sidebar.pug
         .portlet.light.bordered
           .portlet-title
             .caption.font-dark
-              i.icon-layers.font-dark
-              span.caption-subject.bold.uppercase #{list2.length}건의 판매내역을 불러왔습니다
+              i.icon-home.font-dark
+              span.caption-subject.bold.uppercase 이번 주에는 #{list2.length}건의 파트너 정산 내역이 있습니다
             .tools
           .portlet-body
-            table#table_ps_list.table.table-striped.table-bordered.table-hover
+            table#table_payment_list.table.table-striped.table-bordered.table-hover
               thead
                 tr
-                  th 예약ID
-                  th 판매채널
-                  th 예약발생일
+                  th 정산ID
                   th 숙소
-                  th VENDOR
-                  th 고객이름
-                  th 체크인
+                  th 은행코드
+                  th 은행명
+                  th 계좌번호
+                  th 예금주
                   th 판매금액
                   th 수수료
                   th 정산액
                   th 상태
+
               tfoot
                 tr
                   th
@@ -78,36 +77,35 @@ include includes/left_sidebar.pug
                   th
                   th
                   th
-                  th
               tbody
-                each reservation in list2
-                  tr.odd.gradeX
-                    td #{reservation.id}
-                    td #{reservation.channel}
-                    td #{moment(reservation.sold_date).format('YYYY/MM/DD')}
-                    each property in properties
-                      if reservation.property_id === property.id
-                        td #{property.name}
-                          each vendor in vendors
-                            if property.vendor === vendor.id
-                              td #{vendor.name}
-                    td #{reservation.name}
-                    td #{moment(reservation.checkin).format('YYYY/MM/DD')}
-                    - var commition = reservation.gross_price * 0.15
-                    td.currency #{reservation.gross_price}
-                    td.currency #{commition}
-                    td.currency #{reservation.gross_price - commition}
-
-                    td
-                      case reservation.status
-                        when '정산완료'
-                          span.label.label-sm.label-primary #{reservation.status}
-                        when '정산예정'
-                          span.label.label-sm.label-success #{reservation.status}
-                        when '대기중'
-                          span.label.label-sm.label-warning #{reservation.status}
-                        when '취소됨'
-                          span.label.label-sm.label-default #{reservation.status}
+                //- each reservation in list2
+                //-   tr.odd.gradeX
+                //-     td #{reservation.id}
+                //-     td #{reservation.channel}
+                //-     td #{moment(reservation.sold_date).format('YYYY/MM/DD')}
+                //-     each property in properties
+                //-       if reservation.property_id === property.id
+                //-         td #{property.name}
+                //-           each vendor in vendors
+                //-             if property.vendor === vendor.id
+                //-               td #{vendor.name}
+                //-     td #{reservation.name}
+                //-     td #{moment(reservation.checkin).format('YYYY/MM/DD')}
+                //-     - var commition = reservation.gross_price * 0.15
+                //-     td.currency #{reservation.gross_price}
+                //-     td.currency #{commition}
+                //-     td.currency #{reservation.gross_price - commition}
+                //-
+                //-     td
+                //-       case reservation.status
+                //-         when '정산완료'
+                //-           span.label.label-sm.label-primary #{reservation.status}
+                //-         when '정산예정'
+                //-           span.label.label-sm.label-success #{reservation.status}
+                //-         when '대기중'
+                //-           span.label.label-sm.label-warning #{reservation.status}
+                //-         when '취소됨'
+                //-           span.label.label-sm.label-default #{reservation.status}
 
 include includes/footer.pug
 

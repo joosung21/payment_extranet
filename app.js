@@ -22,18 +22,39 @@ var list2 = list2.getlist()
 var properties = properties.getlist()
 var vendors = vendors.getlist()
 
-app.get(['/', '/:id'], function (req, res) {
-  if (!req.params.id) {
-    res.redirect('/po_list')
-  } else {
-    res.render( req.params.id , {
-      list: list,
-      list2: list2,
-      properties: properties,
-      vendors: vendors,
-      pageId: req.params.id
-    })
-  }
+
+app.get('/', function (req, res) {
+  res.redirect('/po_list')
+})
+app.get('/po_list', function (req, res) {
+  res.render( 'po_list' , {
+    list: list,
+    properties: properties,
+    pageId: 'po_list'
+  })
+})
+app.get('/ps_list', function (req, res) {
+  res.render( 'ps_list' , {
+    list2: list2,
+    properties: properties,
+    vendors: vendors,
+    pageId: 'ps_list'
+  })
+})
+app.get('/ps_partner', function (req, res) {
+  res.render( 'ps_partner' , {
+    properties: properties,
+    vendors: vendors,
+    pageId: 'ps_partner'
+  })
+})
+app.get('/payment_list', function (req, res) {
+  res.render( 'payment_list' , {
+    list2: list2,
+    properties: properties,
+    vendors: vendors,
+    pageId: 'payment_list'
+  })
 })
 
 // SERVER LISTNER

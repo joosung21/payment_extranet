@@ -297,6 +297,87 @@ var TableDatatables = function () {
         });
     }
 
+    // Intit Datatable: ps_Part
+    var initTable3 = function () {
+        var table = $('#table_ps_partner');
+
+        var currencyColumns = []; // money formatting columns
+
+        var oTable = table.dataTable({
+
+            // Internationalisation.
+            "language": {
+                url: '/lang/dataTables.korean.lang.json',
+            },
+
+            buttons: [
+                {
+                  extend: 'print',
+                  text: '<i class="fa fa-print"></i> 프린트',
+                  className: 'btn dark btn-outline',
+                  title: 'ZARI 판매대행 내역서',
+                  exportOptions: {
+                    columns: ':visible'
+                  }
+                },
+                {
+                  extend: 'copy',
+                  text: '<i class="fa fa-files-o"></i> 복사하기',
+                  className: 'btn blue btn-outline',
+                  exportOptions: {
+                    columns: ':visible'
+                  }
+                },
+                {
+                  extend: 'excel',
+                  text: '<i class="fa fa-file-excel-o"></i> Excel',
+                  className: 'btn green-jungle btn-outline ',
+                  filename: 'ZARI 판매대행 내역서',
+                  exportOptions: {
+                    columns: ':visible'
+                  }
+                },
+                {
+                  extend: 'csv',
+                  text: '<i class="fa fa-file-text-o"></i> CVS',
+                  className: 'btn red btn-outline ',
+                  filename: 'ZARI 판매대행 내역서',
+                  exportOptions: {
+                    columns: ':visible'
+                  }
+                },
+                {
+                  extend: 'colvis',
+                  text: '<i class="fa fa-check"></i> 항목선택',
+                  className: 'btn dark btn-outline'
+                }
+            ],
+
+            // setup responsive extension
+            responsive: true,
+
+            colReorder: {
+                reorderCallback: function () {
+                    // console.log( 'callback' );
+                }
+            },
+
+            "order": [
+                [0, 'desc']
+            ],
+
+            "lengthMenu": [
+                [10, 20, 30, 50, -1],
+                [10, 20, 30, 50, "All"] // change per page values here
+            ],
+            // set the initial value
+            "pageLength": 20,
+
+            "dom": "<'row' <'col-md-12'B>><'row'<'col-md-6 col-sm-12'l><'col-md-6 col-sm-12'f>r><'table-scrollable't><'row'<'col-md-5 col-sm-12'i><'col-md-7 col-sm-12'p>>", // horizobtal scrollable datatable
+
+        });
+    }
+
     return {
 
         //main function to initiate the module
@@ -308,6 +389,8 @@ var TableDatatables = function () {
 
             initTable1();
             initTable2();
+            initTable3();
+
         }
 
     };

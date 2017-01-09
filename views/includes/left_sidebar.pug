@@ -12,7 +12,6 @@
         a.nav-link.nav-toggle(href='/po_list')
           i.icon-layers
           span.title 판매내역
-          span.selected
           //- span.arrow
         //- ul.sub-menu
           li.nav-item.active
@@ -21,9 +20,18 @@
               span.title ToDo
               span.selected
       li.heading
-        h3.uppercase T PORT - PS
+        h3.uppercase T PORT - PS AGENT
       li.nav-item(class= pageId == "ps_list" ? "active" : "")
         a.nav-link.nav-toggle(href='ps_list')
           i.icon-layers
           span.title 판매내역
-          span.selected
+      li.nav-item(class= pageId == "ps_partner" ? "active" : "")
+        a.nav-link.nav-toggle(href='ps_partner')
+          i.icon-users
+          span.title 파트너정보
+      li.heading
+        h3.uppercase T PORT - ACCOUNTANT
+      li.nav-item(class= pageId == "payment_list" ? "active" : "")
+        a.nav-link.nav-toggle(href='payment_list')
+          i.icon-home
+          span.title 파트너정산
