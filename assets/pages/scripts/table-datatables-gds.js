@@ -89,6 +89,8 @@ var TableDatatables = function () {
                 }
             },
 
+            // "bStateSave": true, // save datatable state(pagination, sort, etc) in cookie.
+
             "order": [
                 [2, 'desc']
             ],
@@ -247,6 +249,8 @@ var TableDatatables = function () {
                 }
             },
 
+            // "bStateSave": true, // save datatable state(pagination, sort, etc) in cookie.
+
             "order": [
                 [2, 'desc']
             ],
@@ -362,6 +366,8 @@ var TableDatatables = function () {
                 }
             },
 
+            // "bStateSave": true, // save datatable state(pagination, sort, etc) in cookie.
+
             "order": [
                 [0, 'desc']
             ],
@@ -378,6 +384,120 @@ var TableDatatables = function () {
         });
     }
 
+    // Intit Datatable: ps_list
+    var initTable4 = function () {
+        var table = $('#table_payment_list');
+
+        var currencyColumns = [9,10,11]; // money formatting columns
+
+        var oTable = table.dataTable({
+
+            // Internationalisation.
+            "language": {
+                url: '/lang/dataTables.korean.lang.json',
+            },
+
+            buttons: [
+                {
+                  extend: 'excel',
+                  text: '<i class="fa fa-file-excel-o"></i> Excel',
+                  className: 'btn green-jungle btn-outline ',
+                  filename: '정산리스트',
+                  exportOptions: {
+                    columns: ':visible'
+                  }
+                },
+                {
+                  extend: 'colvis',
+                  text: '<i class="fa fa-check"></i> 항목선택',
+                  className: 'btn dark btn-outline'
+                }
+            ],
+
+            // setup responsive extension
+            responsive: true,
+
+            colReorder: {
+                reorderCallback: function () {
+                    // console.log( 'callback' );
+                }
+            },
+
+            // "bStateSave": true, // save datatable state(pagination, sort, etc) in cookie.
+
+            "order": [
+                [1, 'desc']
+            ],
+
+            "lengthMenu": [
+                [10, 20, 30, 50, -1],
+                [10, 20, 30, 50, "All"] // change per page values here
+            ],
+            // set the initial value
+            "pageLength": 20,
+
+            "columnDefs": [
+                {
+                  "type" : "num-fmt",
+                  "targets" : currencyColumns
+                },
+                {
+                    "className": "dt-right",
+                    "targets": currencyColumns
+                },
+                {
+                    'orderable': false,
+                    'targets': [0]
+                }, {
+                    "searchable": false,
+                    "targets": [0]
+                }
+
+            ],
+
+            "footerCallback": function ( row, data, start, end, display ) {
+                var api = this.api(), data;
+
+                // Remove the formatting to get integer data for summation
+                var intVal = function ( i ) {
+                    return typeof i === 'string' ?
+                        i.replace(/,|₩|$ /g, '')*1 :
+                        typeof i === 'number' ?
+                            i : 0;
+                };
+
+                // Total over this page
+                currencyColumns.forEach(function(column) {
+                  pageTotal = api
+                      .column( column, { page: 'current'} )
+                      .data()
+                      .reduce( function (a, b) {
+                          return intVal(a) + intVal(b);
+                      }, 0 );
+                   $( api.column( column ).footer() ).html('₩ ' + currency(pageTotal));
+                });
+            },
+
+            "dom": "<'row' <'col-md-12'B>><'row'<'col-md-6 col-sm-12'l><'col-md-6 col-sm-12'f>r><'table-scrollable't><'row'<'col-md-5 col-sm-12'i><'col-md-7 col-sm-12'p>>", // horizobtal scrollable datatable
+        });
+
+        var tableWrapper = jQuery('#table_payment_list_wrapper');
+
+        table.find('.group-checkable').change(function () {
+            var set = jQuery(this).attr("data-set");
+            var checked = jQuery(this).is(":checked");
+            jQuery(set).each(function () {
+                if (checked) {
+                    $(this).prop("checked", true);
+                } else {
+                    $(this).prop("checked", false);
+                }
+            });
+        });
+
+    }
+
+
     return {
 
         //main function to initiate the module
@@ -390,6 +510,7 @@ var TableDatatables = function () {
             initTable1();
             initTable2();
             initTable3();
+            initTable4();
 
         }
 

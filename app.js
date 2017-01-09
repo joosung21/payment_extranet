@@ -17,10 +17,12 @@ var list = require( "./temp_reservation_data.js")
 var list2 = require( "./temp_reservation_data2.js")
 var properties = require( "./temp_property_data.js")
 var vendors = require( "./temp_vendor_data.js")
+var payments = require( "./temp_payment_data.js")
 var list = list.getlist()
 var list2 = list2.getlist()
 var properties = properties.getlist()
 var vendors = vendors.getlist()
+var payments = payments.getlist()
 
 
 app.get('/', function (req, res) {
@@ -50,9 +52,8 @@ app.get('/ps_partner', function (req, res) {
 })
 app.get('/payment_list', function (req, res) {
   res.render( 'payment_list' , {
-    list2: list2,
     properties: properties,
-    vendors: vendors,
+    payments : payments,
     pageId: 'payment_list'
   })
 })
