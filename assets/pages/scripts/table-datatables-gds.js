@@ -87,7 +87,7 @@ var TableDatatables = function () {
                 reorderCallback: function () {
                     // console.log( 'callback' );
                 }
-            },           
+            },
 
             "order": [
                 [2, 'desc']
@@ -109,6 +109,10 @@ var TableDatatables = function () {
                 //     "searchable": false,
                 //     "targets": [0]
                 // },
+                {
+                  "type" : "num-fmt",
+                  "targets" : currencyColumns
+                },
                 {
                     "className": "dt-right",
                     "targets": currencyColumns
@@ -182,7 +186,7 @@ var TableDatatables = function () {
     var initTable2 = function () {
         var table = $('#table_ps_list');
 
-        var currencyColumns = [6,7,8]; // money formatting columns
+        var currencyColumns = [7,8,9]; // money formatting columns
 
         var oTable = table.dataTable({
 
@@ -255,6 +259,10 @@ var TableDatatables = function () {
             "pageLength": 20,
 
             "columnDefs": [
+                {
+                  "type" : "num-fmt",
+                  "targets" : currencyColumns
+                },
                 {
                     "className": "dt-right",
                     "targets": currencyColumns
