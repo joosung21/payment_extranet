@@ -89,7 +89,7 @@ var TableDatatables = function () {
                 }
             },
 
-            // "bStateSave": true, // save datatable state(pagination, sort, etc) in cookie.
+            "bStateSave": true, // save datatable state(pagination, sort, etc) in cookie.
 
             "order": [
                 [2, 'desc']
@@ -249,7 +249,7 @@ var TableDatatables = function () {
                 }
             },
 
-            // "bStateSave": true, // save datatable state(pagination, sort, etc) in cookie.
+            "bStateSave": true, // save datatable state(pagination, sort, etc) in cookie.
 
             "order": [
                 [2, 'desc']
@@ -366,7 +366,7 @@ var TableDatatables = function () {
                 }
             },
 
-            // "bStateSave": true, // save datatable state(pagination, sort, etc) in cookie.
+            "bStateSave": true, // save datatable state(pagination, sort, etc) in cookie.
 
             "order": [
                 [0, 'desc']
@@ -423,7 +423,7 @@ var TableDatatables = function () {
                 }
             },
 
-            // "bStateSave": true, // save datatable state(pagination, sort, etc) in cookie.
+            "bStateSave": true, // save datatable state(pagination, sort, etc) in cookie.
 
             "order": [
                 [1, 'desc']
@@ -452,7 +452,6 @@ var TableDatatables = function () {
                     "searchable": false,
                     "targets": [0]
                 }
-
             ],
 
             "footerCallback": function ( row, data, start, end, display ) {
