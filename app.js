@@ -57,6 +57,9 @@ app.get('/payment_list', function (req, res) {
     pageId: 'payment_list'
   })
 })
+app.get('/user_lock', function (req, res) {
+  res.render( 'user_lock')
+})
 
 // SERVER LISTNER
 app.listen(3000, function () {

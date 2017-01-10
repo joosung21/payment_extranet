@@ -75,7 +75,7 @@ var list = [
     account: '110-462-501719',
     accontname: '곽성용',
     price: 390000,
-    status: '세금완료'
+    status: '세금계산서완료'
   },
   {
     id: '1279',

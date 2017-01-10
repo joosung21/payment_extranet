@@ -13,6 +13,25 @@ body.page-header-fixed.page-sidebar-closed-hide-logo.page-content-white
         //- RESPONSIVE MENU TOGGLER
         a.menu-toggler.responsive-toggler(href='javascript:;', data-toggle='collapse', data-target='.navbar-collapse')
           span
+        //- TOP NAVIGATION MENU
+        .top-menu
+          ul.nav.navbar-nav.pull-right
+            //- BEGIN USER LOGIN DROPDOWN
+            li.dropdown.dropdown-user
+              a.dropdown-toggle(href='javascript:;', data-toggle='dropdown', data-hover='dropdown', data-close-others='true')
+                i.icon-user
+                span.username.username-hide-on-mobile(style='margin: 0px 7px 0 7px') 안주성
+                i.fa.fa-angle-down
+              ul.dropdown-menu.dropdown-menu-default
+                li
+                  a(href='/user_lock')
+                    i.icon-lock
+                    |  화면 잠그기
+                li
+                  a(href='/user_login')
+                    i.icon-key
+                    |  로그아웃
+
     //- HEADER & CONTENT DIVIDER
     .clearfix
     //- CONTAINER

@@ -408,6 +408,15 @@ var TableDatatables = function () {
                   }
                 },
                 {
+                  extend: 'csv',
+                  text: '<i class="fa fa-file-text-o"></i> CVS',
+                  className: 'btn red btn-outline ',
+                  filename: 'ZARI 판매대행 내역서',
+                  exportOptions: {
+                    columns: ':visible'
+                  }
+                },
+                {
                   extend: 'colvis',
                   text: '<i class="fa fa-check"></i> 항목선택',
                   className: 'btn dark btn-outline'
