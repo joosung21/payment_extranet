@@ -28,6 +28,11 @@ var payments = payments.getlist()
 app.get('/', function (req, res) {
   res.redirect('/po_list')
 })
+app.get('/po_dashboard', function (req, res) {
+  res.render( 'po_dashboard' , {
+    pageId: 'po_dashboard'
+  })
+})
 app.get('/po_list', function (req, res) {
   res.render( 'po_list' , {
     list: list,
@@ -59,6 +64,12 @@ app.get('/payment_list', function (req, res) {
 })
 app.get('/user_lock', function (req, res) {
   res.render( 'user_lock')
+})
+app.post('/user_login', function (req, res) {
+  res.redirect( '/')
+})
+app.get('/user_login', function (req, res) {
+  res.render( 'user_login')
 })
 
 // SERVER LISTNER
