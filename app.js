@@ -26,7 +26,7 @@ var payments = payments.getlist()
 
 
 app.get('/', function (req, res) {
-  res.redirect('/po_list')
+  res.redirect('/po_dashboard')
 })
 app.get('/po_dashboard', function (req, res) {
   res.render( 'po_dashboard' , {
