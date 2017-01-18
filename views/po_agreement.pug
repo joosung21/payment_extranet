@@ -1,0 +1,207 @@
+include includes/header.pug
+
+//- PAGE LEVEL PLUGINS
+
+//- THEME GLOBAL STYLES
+link#style_components(href='../assets/global/css/components.min.css', rel='stylesheet', type='text/css')
+link(href='../assets/global/css/plugins.min.css', rel='stylesheet', type='text/css')
+//- PAGE LEVEL STYLES
+link(href='../assets/pages/css/invoice.css', rel='stylesheet', type='text/css')
+//- THEME LAYOUT STYLES
+link(href='../assets/layouts/layout/css/layout.min.css', rel='stylesheet', type='text/css')
+link#style_color(href='../assets/layouts/layout/css/themes/darkblue.min.css', rel='stylesheet', type='text/css')
+link(href='../assets/layouts/layout/css/custom.min.css', rel='stylesheet', type='text/css')
+link(rel='shortcut icon', href='favicon.ico')
+
+include includes/body_top.pug
+include includes/left_sidebar.pug
+
+//- CONTENT
+.page-content-wrapper
+  //- CONTENT BODY
+  .page-content
+    //- PAGE TITLE
+    h1.page-title
+      | 자리 서비스 이용 계약서
+      small Sample
+
+    .invoice
+      .row.invoice-logo
+        .col-xs-6.invoice-logo-space
+          img.img-responsive(src='../logo.png', alt='')
+        .col-xs-6
+          p
+            | 2017년 1월 17일
+            span.muted  든마루 호스텔
+      hr
+      .row
+        .col-xs-4
+          h3 업체:
+          ul.list-unstyled
+            li  사업자명: 든마루
+            li  사업자번호: 513-21-00267
+            li  주소: 강원도 속초시 교동 658-49
+            li  대표자: 김래정
+            li  대표연락처: 010-6353-2496
+            li  업종: 호텔업
+            li  업태: 숙박 및 음식점
+        .col-xs-4
+          h3 담당자:
+          ul.list-unstyled
+            li  담당자명: 김래정
+            li  연락처: 010-6353-2496
+            li  이메일: swiminsky@naver.com
+        .col-xs-4.invoice-payment
+          h3 정산정보:
+          ul.list-unstyled
+            li 은행: NH농협
+            li 계좌번호: 301-6353-2496-71
+            li 예금주: 김래정
+      .row
+        .col-xs-12
+          table.table.table-striped.table-hover
+            thead
+              tr
+                th  #
+                th  이용서비스
+                th  설명
+                th  기간
+                th  객실수
+                th  가격
+            tbody
+              tr
+                td  1
+                td  퍼펙트 패키지
+                td  예약관리, 온라인 여행사 동기화, 숙소 홍보
+                td  1년
+                td  16
+                td  ₩68,600
+              tr
+                td
+                td
+                td
+                td
+                td
+                td
+      .row(style="margin-top:200px;")
+        .col-xs-4
+          .well
+            address
+              strong 티포트 주식회사
+              br
+              |  서울특별시 강남구 테헤란로108길 12, 4층
+              br
+              abbr(title='') TEL:
+              |  (02) 2138-2028
+              br
+              abbr(title='') 대표이사:
+              |   오현석
+        .col-xs-8.invoice-block
+          ul.list-unstyled.amounts
+            li
+              strong 소계:
+              |  ₩68,600
+            li
+              strong 할인율:
+              |  50%
+            li
+              strong 부가세:
+              |  -----
+            li
+              strong 총계:
+              |  ₩34,300
+      hr
+      .agreement
+        .row
+          .col-xs-6
+            strong 제1조 계약의 목적
+            p 본 계약은 티포트 주식회사(이하 ‘회사’)가 든마루 (이하 ‘업체’)에게 인터넷을 이용한 예약대행서비스를 제공하고, 업체는 이에 대한 대가를 회사에 지급함에 있어 상호간의 권리, 의무를 정함에 그 목적이 있다.
+            strong 제2조 용어의 정의
+            ol
+              li  고객 : 업체의 예약을 발생시키는 주체
+              li  자리(ZARI) : 티포트 주식회사에서 제공하는 웹 및 모바일 기반의 예약관리, 대행 및 결제대행 프로그램
+              li  중개회사: 업체의 정보를 고객에게 독자적인 홈페이지를 통하여 제공하여 예약을 대행하는 회사
+              li  예약대행서비스 : 회사가 업체의 정보를 직접 고객에게 제공하거나 다른 중개회사를 통하여 제공함으로써 예약이 이루어지는 것
+              li  수수료: 회사가 제공하는 서비스에 대한 대가로 업체가 회사에 지급하는 금원
+            strong 제3조 회사의 권리와 의무
+            ol
+              li  예약대행서비스 제공
+                ol(style="list-style: lower-alpha")
+                  li  회사는 업체의 객실 재고상태, 가격, 사진 등의 정보를 직접 또는 제3의 중개회사에 제공할 수 있고, 예약을 대행할 수 있는 권리가 있다.
+                  li  회사는 업체에서 자리(ZARI) 를 통해 설정한 가격으로 객실 예약 서비스를 대행하며, 필요한 경우 가격 설정 권한을 업체에 위임할 수 있다.
+                  li  특정 요금제 사용자의 경우, 자리(ZARI) 서비스 상 최저가 요금제에 대해 제공의무를 가질 수 있으며, 서비스 운영 담당자들이 문의나 조회를 통하거나, 또는 시스템 상 입력된 최저가를 자동으로 추출하여 활용 할 수 있다.
+            strong  제4조 회사의 권리와 의무
+            ol
+              li  업체는 회사가 예약대행을 위하여 업체의 객실 재고상황, 가격, 사진 등의 정보를 취득, 사용하는 것에 대하여 동의한다.
+              li  업체는 자리(ZARI)에 객실 재고 현황을 신속히 업데이트하며, 그렇지 않았을 경우 발생되는 문제에 대하여 책임을 지며 업체가 적극적으로 해결을 한다.
+              li  업체는 숙박업체를 운영하기 위한 적법적 허가를 갖고 있음을 확인하며, 그렇지 않았을 경우 발생되는 물적 손해 및 분쟁에 대하여 책임을 진다.
+              li  대행판매 및 대행결제에 있어서 업체와 자리(ZARI) 각각 취한 수익에 대해서 세무신고를 하여야 한다.
+          .col-xs-6
+            strong  제5조 수수료 및 정산금의 지급
+            ol
+              li  예약대행서비스의 경우
+                ol(style="list-style: lower-alpha")
+                  li  예약대행결제 수수료는 총 결제금액의 15%이며,  부가세가 포함된 금액이다.
+                  li  고객이 예약취소를 하여 위약금을 공제하고 부분환불을 하는 경우, 위약금의 15% 를 회사에 지급한다. (단, 송금 일이 공휴일인 경우 다음 영업 일에 송금한다.)
+                  li  ③	업체는 고객이 결제하고 실제 입실한 날을 기준으로 2주 정산 매주 (목) 요일에  정산한다. (단, 송금 일이 공휴일인 경우 다음 영업 일에 송금한다.)
+              li  업체는 예약의 취소에 따른 환불 정책을 정하고 고객이 알 수 있도록 홈페이지에 게시하여야 한다.
+              li  회사는 고객이 예약을 취소하는 경우 업체의 환불 정책에 따라 결제금액의 전액 환불 또는 부분환불을 한다.
+              li  업체는 예약의 취소 및 환불에 따른 고객의 이의제기, 항의, 법적 분쟁에 대하여 책임을 진다.
+            strong  제6조 비용
+            ol
+              li  자리(ZARI), 예약채널관리시스템(GDS)의 설치, 유지, 보수에 소요되는 비용은 회사의 계산으로 한다.
+              li  회사는 이 계약 체결 당시 업체가 운영하고 있는 홈페이지의 유지, 보수 비용에 대하여는 책임을 지지 않는다.
+            strong  제7조 지적제산권
+            ol
+              li  업체가 자체적으로 보유하고 있는 홈페이지 상의 사진, 폰트 등의 지적재산과 관련하여 회사가 제3자로부터 소송이 제기되는 경우, 업체는 자신의 비용과 책임으로 이를 해결하며, 이로 인하여 회사가 입은 손해를 배상한다.
+              li  업체가 회사와 홈페이지 제작 계약에 따라 공급받은 홈페이지 상의 지적재산의 소유권 귀속 문제, 법적 분쟁시 해결 책임 등은 홈페이지 제작 계약에 따른다.
+              li  업체는 회사가 업체의 상표, 상호를 사용함에 따라 발생하는 분쟁에 대한 해결 책임이 있다.
+            strong  제8조 비밀유지 및 정보보호
+            ol
+              li  회사와 업체는 본 계약과 관련한 업무로 취득한 상대방 또는 상대방 고객에 대한 정보를 비밀로 유지해야 하며, 제3자에게 제공하거나, 본 계약 목적 외의 용도로 사용하여서는 아니 된다.
+              li  회사와 업체는 고객의 개인정보를 고객정보 보호법에 따라 보호하며, 본 계약의 목적 외의 용도로 사용하지 아니한다.
+        .row(style="margin-top:100px;")
+          .col-xs-6
+            strong  제9조 계약 기간
+            p  본 계약의 유효기간은 계약 체결일로부터 2년으로 하되, 계약 만료 1개월 전까지 별도의 서면 통보가 없을 경우, 자동으로 1년 단위로 연장된다.
+            strong  제10조 계약의 해지 또는 해제
+            p 회사는 다음 각호의 경우 본 계약을 해지 또는 해제할 수 있다.
+            ol
+              li  업체가 본 계약상의 의무를 이행하지 아니하거나 위반한 경우
+              li  업체가 거래정지, 강제집행, 파산신청 등을 당한 경우
+            strong  제11조 계약의 내용 변경
+            p 회사와 업체는 서면합의에 의하여 본 계약의 내용을 변경할 수 있다.
+
+          .col-xs-6
+            strong  제12조 분쟁의 조정
+            p 본 계약에 따라 발생한 모든 분쟁의 제1심 관할법원으로 서울중앙지방법원을 지정한다.
+            strong  제13조 기타
+            ol
+              li  본 계약은 회사, 업체의 서명날인과 동시에 효력이 발생한다.
+              li  본 계약의 체결 사실을 증명하기 위하여 회사, 업체는 각 1통의 계약서를 작성하여 보관하기로 한다.
+              li  대표자와 예금주명의 불일치 사항에 관한 모든 책임은 대표자에 있음을 확인한다.
+
+
+
+
+      hr
+
+      .text-right
+        a.btn.btn-lg.blue.hidden-print.margin-bottom-5(onclick='javascript:window.print();')
+          | 프린트하기 &nbsp;
+          i.fa.fa-print
+        a.btn.btn-lg.green.hidden-print.margin-bottom-5
+          | 제출하기 &nbsp;
+          i.fa.fa-check
+
+
+include includes/footer.pug
+
+//- PAGE LEVEL PLUGINS
+
+//- THEME GLOBAL SCRIPTS
+script(src='../assets/global/scripts/app.min.js', type='text/javascript')
+//- THEME LAYOUT SCRIPTS
+script(src='../assets/layouts/layout/scripts/layout.min.js', type='text/javascript')
+script(src='../assets/layouts/global/scripts/quick-sidebar.min.js', type='text/javascript')
+script(src='../assets/layouts/global/scripts/quick-nav.min.js', type='text/javascript')

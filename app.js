@@ -71,6 +71,22 @@ app.post('/user_login', function (req, res) {
 app.get('/user_login', function (req, res) {
   res.render( 'user_login')
 })
+app.get('/po_agreement', function (req, res) {
+  res.render( 'po_agreement',{
+    pageId: 'po_agreement',
+  })
+})
+app.get('/po_register', function (req, res) {
+  res.render( 'po_register',{
+    pageId: 'po_register',
+  })
+})
+app.get('/po_attachment', function (req, res) {
+  res.render( 'po_attachment',{
+    pageId: 'po_register',
+  })
+})
+
 
 // SERVER LISTNER
 app.listen(3000, function () {

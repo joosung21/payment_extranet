@@ -16,6 +16,15 @@
         a.nav-link.nav-toggle(href='/po_list')
           i.icon-layers
           span.title 판매내역
+      li.nav-item(class= pageId == "po_register" ? "active" : "")
+        a.nav-link.nav-toggle(href='/po_register')
+          i.icon-note
+          span.title 서비스 이용등록
+      li.nav-item(class= pageId == "po_agreement" ? "active" : "")
+        a.nav-link.nav-toggle(href='/po_agreement')
+          i.icon-docs
+          span.title 서비스 이용계약서
+
           //- span.arrow
         //- ul.sub-menu
           li.nav-item.active
